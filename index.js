@@ -4,34 +4,34 @@
 //    votes: Number (defaults to 0)
 // }
 
-const catfactsCollection =  firebase.database().ref('catfacts');
+const catfactsCollection = firebase.database().ref('catfacts');
 
 $('#catfact-form').on('submit', function (event) {
-    event.preventDefault(); 
-    
-    const catfactText = $('#catfact').val();
+    event.preventDefault();
 
-    if (catfactText.trim() !== ''){
+    const catfactText = $('#catfact').val();
+    console.log(catfactText)
+    if (catfactText.trim() !== '') {
         //add catfact to database
         catfactsCollection.push({
             catfact: catfactText.trim(),
-            votes: 0, 
+            votes: 0,
         });
-        
-        
+
+
         //clear text
         $('#catfact').val('');
-       
+
 
     }
 });
 
-  catfactsCollection.on('value', function (results){
-    results.forEach(function (result){
-        console.log(result.val());
-    })
+catfactsCollection.on('value', function (results) {
+    results.forEach(function (result) {
+        console.log(result);
+    });
 
-  })
+})
 
 
 
@@ -44,7 +44,7 @@ $('#catfact-form').on('submit', function (event) {
 // // Create
 // $('#catfact-form').on('submit', function (event) {
 //   event.preventDefault();
-  
+
 //   const catfactText = $('#catfact').val();
 
 //   if (catfactText.trim() !== '') {
@@ -129,7 +129,7 @@ $('#catfact-form').on('submit', function (event) {
 // // Delete
 // $('.catfact-board').on('click', 'a.remove', function(event) {
 //   event.preventDefault();
-  
+
 //   const key = $(event.target).closest('li').attr('data-catfact-id');
 //   const catfactObj = catfactCollection.child(key);
 
