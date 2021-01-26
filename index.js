@@ -129,7 +129,7 @@ $('.catfact-board').on('click', 'a.remove', function (event) {
       }
       console.log(data);
       for (let i = 0; i < 4; i += 1) {
-        $('h53').eq(i).text(data[i].text);
+        $('h5').eq(i).text(data[i].text);
       }
     })
   }
