@@ -108,7 +108,8 @@ $('.catfact-board').on('click', 'a.remove', function (event) {
 
   function cat() {
     $('#source').text('Cat Facts')
-    let $xhr = $.getJSON("https://cat-fact.herokuapp.com/facts")
+    // let $xhr = $.getJSON("https://cat-fact.herokuapp.com/facts")
+     let $xhr=$.getJSON("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=4")
     $xhr.done(function (data) {
       if ($xhr.status != 200) {
         return;
